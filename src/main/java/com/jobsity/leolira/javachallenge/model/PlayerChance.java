@@ -58,7 +58,7 @@ public class PlayerChance {
 			return true;
 		}
 
-		if (pins.isNumber() && pins.isOutOfRange()) {
+		if (pins.isOutOfRange()) {
 			this.invalidCause = "The pins attribute is less than 0 or greater than 10";
 			return true;
 		}

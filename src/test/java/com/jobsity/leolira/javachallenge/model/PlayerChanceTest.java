@@ -3,6 +3,7 @@ package com.jobsity.leolira.javachallenge.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,6 +32,27 @@ public class PlayerChanceTest {
 		PlayerChance playerChance = new PlayerChance("Player name", "5");
 		
 		assertThat(playerChance.getPinsAsInt()).isEqualTo(5);
+	}
+	
+	@Test
+	public void itIsStrikeFor10Pinfalls() {
+		PlayerChance playerChance = new PlayerChance(null, "10");
+		
+		assertTrue(playerChance.isStrike());
+	}
+	
+	@Test
+	public void itIsNotStrikeForLessThen10Pinfalls() {
+		PlayerChance playerChance = new PlayerChance(null, "9");
+		
+		assertFalse(playerChance.isStrike());
+	}
+	
+	@Test
+	public void itIsValidWhenPlayerIsValidAndPinsAreValid() {
+		PlayerChance playerChance = new PlayerChance("Player name", "5");
+		
+		assertTrue(playerChance.isValid());
 	}
 	
 	@Test
