@@ -7,7 +7,9 @@
  */
 
 plugins {        
-    id 'java-library'
+    id 'java-library'    
+	id 'findbugs'
+	id 'pmd'
 }
 
 repositories {
@@ -27,7 +29,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
 }
-
 
 jar {
     manifest {
@@ -49,6 +50,32 @@ task run(type: JavaExec) {
     args cmdargs.split()
 }
 
+findbugs {
+    toolVersion = '3.0.1'
+    ignoreFailures = false
+}
+
+pmd {
+    toolVersion = '6.7.0'
+    ignoreFailures = false
+    ruleSetFiles = files("ruleset.xml")
+    ruleSets = []
+    rulePriority = 3
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+tasks.withType(Pmd) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
 
 test {
     useJUnitPlatform()
