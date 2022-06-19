@@ -7,9 +7,5 @@ public abstract class BowlingException extends Exception {
 		super(message);
 	}
 
-	public BowlingException(String message, Throwable throwable) {
-		super(message, throwable);
-	}
-
 	public abstract String getErrorGroup();
 }

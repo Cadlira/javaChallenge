@@ -18,6 +18,7 @@
     </description>
 
     <exclude-pattern>.*Mock\.java</exclude-pattern>
+    <exclude-pattern>.*Test\.java</exclude-pattern>
 
     <rule ref="category/java/bestpractices.xml">
         <exclude name="GuardLogStatement"/>
