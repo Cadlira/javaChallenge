@@ -37,7 +37,7 @@ public class Chance {
 	}
 	
 	public boolean isOutOfRange() {
-		return (isNumber() && (getPinsAsInt() < 0 || getPinsAsInt() > 10));
+		return (getPinsAsInt() < 0 || getPinsAsInt() > 10);
 	}
 	
 	public boolean hasInvalidValue() {

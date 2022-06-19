@@ -51,9 +51,37 @@ public class ChanceTest {
 	}
 	
 	@Test
-	public void itHasAValidValueFor_F_Pins() {
+	public void itIsValidWhenPinsValueIsF() {
 		Chance chance = new Chance("F");
 		
 		assertFalse(chance.hasInvalidValue());
+	}
+	
+	@Test
+	public void itIsValidWhenPinsValueIsNumeric() {
+		Chance chance = new Chance("10");
+		
+		assertFalse(chance.hasInvalidValue());
+	}
+	
+	@Test
+	public void itIsInvalidWhenPinsValueIsNotNumericNitherF() {
+		Chance chance = new Chance("X");
+		
+		assertTrue(chance.hasInvalidValue());
+	}
+	
+	@Test
+	public void itReturns_0_WhenGettingPinsAsInt_F_Pins() {
+		Chance chance = new Chance("F");
+		
+		assertThat(chance.getPinsAsInt()).isEqualTo(0);
+	}
+	
+	@Test
+	public void itReturnsNegative_1_WhenGettingPinsAsIntNon_F_Pins() {
+		Chance chance = new Chance("X");
+		
+		assertThat(chance.getPinsAsInt()).isEqualTo(-1);
 	}
 }
