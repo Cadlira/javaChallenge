@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class ChanceTest {
 
 	@Test
-	public void itShouldReturnsThePins() {
+	public void itGetsThePins() {
 		Chance chance = new Chance("5");
 		
 		assertThat(chance.getPins()).isEqualTo("5");
