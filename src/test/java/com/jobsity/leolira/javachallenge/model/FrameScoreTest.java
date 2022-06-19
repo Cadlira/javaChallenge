@@ -12,14 +12,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class FrameScoreTest {
 
 	@Test
-	public void itShouldGetsTheFrameRound() {
+	public void itGetsTheFrameRound() {
 		FrameScore frameScore = new FrameScore(1);
 		
 		assertThat(frameScore.getFrameRound()).isEqualTo(1);
 	}
 	
 	@Test
-	public void itShouldAddAPlayerScore(@Mock PlayerScore playerScore) {
+	public void itAddsAPlayerScore(@Mock PlayerScore playerScore) {
 		FrameScore frameScore = new FrameScore(1);
 		frameScore.addPlayerScore(playerScore);
 		

@@ -16,42 +16,42 @@ public class ChanceTest {
 	}
 	
 	@Test
-	public void itShouldNotBeOutOfRangeForPinsBetween0And10() {
+	public void itIsNotOutOfRangeForPinsBetween0And10() {
 		Chance chance = new Chance("5");
 		
 		assertFalse(chance.isOutOfRange());
 	}
 	
 	@Test
-	public void itShouldBeOutOfRangeForPinsLessThen0() {
+	public void itIsOutOfRangeForPinsLessThen0() {
 		Chance chance = new Chance("-1");
 		
 		assertTrue(chance.isOutOfRange());
 	}
 	
 	@Test
-	public void itShouldBeOutOfRangeForPinsGreaterThen10() {
+	public void itIsOutOfRangeForPinsGreaterThen10() {
 		Chance chance = new Chance("11");
 		
 		assertTrue(chance.isOutOfRange());
 	}
 	
 	@Test
-	public void itShouldBeEmptyForNullPins() {
+	public void itIsEmptyForNullPins() {
 		Chance chance = new Chance(null);
 		
 		assertTrue(chance.isEmpty());
 	}
 	
 	@Test
-	public void itShouldBeNumericForNumberStrings() {
+	public void itIsNumericForNumberStrings() {
 		Chance chance = new Chance("20");
 		
 		assertTrue(chance.isNumber());
 	}
 	
 	@Test
-	public void itShouldHasValidValueForFPins() {
+	public void itHasAValidValueFor_F_Pins() {
 		Chance chance = new Chance("F");
 		
 		assertFalse(chance.hasInvalidValue());
