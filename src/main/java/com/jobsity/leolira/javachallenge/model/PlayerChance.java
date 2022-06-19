@@ -1,9 +1,10 @@
 package com.jobsity.leolira.javachallenge.model;
 
-import static com.jobsity.leolira.javachallenge.util.CommonContants.MAX_PINFALLS_INT;
 import org.apache.commons.lang3.StringUtils;
 
 public class PlayerChance {
+	private static final int MAX_PINFALLS_INT = 10;
+	
 	private final String player;
 	private final Chance pins;
 	

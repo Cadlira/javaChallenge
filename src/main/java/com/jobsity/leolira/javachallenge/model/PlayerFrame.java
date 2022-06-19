@@ -1,8 +1,5 @@
 package com.jobsity.leolira.javachallenge.model;
 
-import static com.jobsity.leolira.javachallenge.util.CommonContants.MAX_PINFALLS_INT;
-import static com.jobsity.leolira.javachallenge.util.CommonContants.FINAL_FRAME_ROUND;
-import static com.jobsity.leolira.javachallenge.util.CommonContants.SPARE_CHANCES;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,6 +7,9 @@ import java.util.stream.Collectors;
 import com.jobsity.leolira.javachallenge.exception.FrameException;
 
 public class PlayerFrame {
+	private static final int SPARE_CHANCES = 2;
+	private static final int MAX_PINFALLS_INT = 10;
+	private static final int FINAL_FRAME_ROUND = 10;
 	private static final int FINAL_FRAME_MAX_CHANCES = 3;
 	private static final int ORDINARY_FRAME_MAX_CHANCES = 2;
 
