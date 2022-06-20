@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -27,28 +28,28 @@ public class CalculatePlayerChancesTest {
 		String lineSeparator = System.getProperty("line.separator");
 		
 		final Path invalidScore = Files.createFile(tempDir.resolve("invalid-score.txt"));
-		Files.write(invalidScore, "player\t10".getBytes(), StandardOpenOption.APPEND);
-		Files.write(invalidScore, lineSeparator.getBytes(), StandardOpenOption.APPEND);
-		Files.write(invalidScore, "player\tlorem".getBytes(), StandardOpenOption.APPEND);
+		Files.write(invalidScore, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(invalidScore, lineSeparator.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(invalidScore, "player\tlorem".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
 
 		final Path freeText = Files.createFile(tempDir.resolve("free-text.txt"));
-		Files.write(freeText, "player\t10".getBytes(), StandardOpenOption.APPEND);
-		Files.write(freeText, lineSeparator.getBytes(), StandardOpenOption.APPEND);
-		Files.write(freeText, "free text writing".getBytes(), StandardOpenOption.APPEND);
+		Files.write(freeText, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(freeText, lineSeparator.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(freeText, "free text writing".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
 
 		final Path blankLine = Files.createFile(tempDir.resolve("blank-line.txt"));
-		Files.write(blankLine, "player\t10".getBytes(), StandardOpenOption.APPEND);
-		Files.write(blankLine, lineSeparator.getBytes(), StandardOpenOption.APPEND);
-		Files.write(blankLine, "player\t10".getBytes(), StandardOpenOption.APPEND);
-		Files.write(blankLine, lineSeparator.getBytes(), StandardOpenOption.APPEND);
-		Files.write(blankLine, lineSeparator.getBytes(), StandardOpenOption.APPEND);
-		Files.write(blankLine, "player\t10".getBytes(), StandardOpenOption.APPEND);
+		Files.write(blankLine, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(blankLine, lineSeparator.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(blankLine, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(blankLine, lineSeparator.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(blankLine, lineSeparator.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(blankLine, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
 
 		final Path perfect = Files.createFile(tempDir.resolve("perfect.txt"));
-		Files.write(perfect, "player\t10".getBytes(), StandardOpenOption.APPEND);
+		Files.write(perfect, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
 		for (int i = 0; i < 11; i++) {
-			Files.write(perfect, lineSeparator.getBytes(), StandardOpenOption.APPEND);
-			Files.write(perfect, "player\t10".getBytes(), StandardOpenOption.APPEND);
+			Files.write(perfect, lineSeparator.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+			Files.write(perfect, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
 		}
 
 	}

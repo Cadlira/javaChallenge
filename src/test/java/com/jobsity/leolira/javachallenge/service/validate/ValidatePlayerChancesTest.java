@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -38,9 +39,9 @@ public class ValidatePlayerChancesTest {
 		Files.createFile(tempDir.resolve("empty.txt"));
 
 		final Path negative = Files.createFile(tempDir.resolve("negative.txt"));
-		Files.write(negative, "player\t10".getBytes(), StandardOpenOption.APPEND);
-		Files.write(negative, lineSeparator.getBytes(), StandardOpenOption.APPEND);
-		Files.write(negative, "player\t-5".getBytes(), StandardOpenOption.APPEND);
+		Files.write(negative, "player\t10".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(negative, lineSeparator.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+		Files.write(negative, "player\t-5".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
 	}
 
 	@Test

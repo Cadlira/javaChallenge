@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,11 +32,11 @@ public class PrintGameResultTest {
 	private ByteArrayOutputStream currentSystemOut;
 
 	@BeforeEach
-	public void setUp() {
+	public void setUp() throws UnsupportedEncodingException {
 		oldSystemOut = System.out;
 
 		currentSystemOut = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(currentSystemOut, true);
+		PrintStream ps = new PrintStream(currentSystemOut, true, "UTF-8");
 		System.setOut(ps);
 	}
 
@@ -57,7 +58,7 @@ public class PrintGameResultTest {
 
 		printGameResult.print();
 
-		assertThat(currentSystemOut.toString()).isEqualTo(getPerfectOutput());
+		assertThat(currentSystemOut.toString("UTF-8")).isEqualTo(getPerfectOutput());
 	}
 	
 	@Test
@@ -71,7 +72,7 @@ public class PrintGameResultTest {
 
 		printGameResult.print();
 
-		assertThat(currentSystemOut.toString()).isEqualTo(getSpareOutput());
+		assertThat(currentSystemOut.toString("UTF-8")).isEqualTo(getSpareOutput());
 	}
 	
 	@Test
@@ -85,7 +86,7 @@ public class PrintGameResultTest {
 
 		printGameResult.print();
 
-		assertThat(currentSystemOut.toString()).isEqualTo(getOpenFrameOutput());
+		assertThat(currentSystemOut.toString("UTF-8")).isEqualTo(getOpenFrameOutput());
 	}
 	
 	@Test
@@ -134,7 +135,7 @@ public class PrintGameResultTest {
 	private String getPerfectOutput() throws IOException {
 
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos, true);
+		PrintStream ps = new PrintStream(baos, true, "UTF-8");
 
 		ps.println();
 		ps.println();
@@ -149,7 +150,7 @@ public class PrintGameResultTest {
 		ps.println();
 		ps.println();
 
-		String result = baos.toString();
+		String result = baos.toString("UTF-8");
 
 		baos.close();
 
@@ -178,7 +179,7 @@ public class PrintGameResultTest {
 	private String getSpareOutput() throws IOException {
 
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos, true);
+		PrintStream ps = new PrintStream(baos, true, "UTF-8");
 
 		ps.println();
 		ps.println();
@@ -193,7 +194,7 @@ public class PrintGameResultTest {
 		ps.println();
 		ps.println();
 
-		String result = baos.toString();
+		String result = baos.toString("UTF-8");
 
 		baos.close();
 
@@ -228,7 +229,7 @@ public class PrintGameResultTest {
 	private String getOpenFrameOutput() throws IOException {
 
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos, true);
+		PrintStream ps = new PrintStream(baos, true, "UTF-8");
 
 		ps.println();
 		ps.println();
@@ -243,7 +244,7 @@ public class PrintGameResultTest {
 		ps.println();
 		ps.println();
 
-		String result = baos.toString();
+		String result = baos.toString("UTF-8");
 
 		baos.close();
 
